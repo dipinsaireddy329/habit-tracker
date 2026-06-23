@@ -1,3 +1,5 @@
+import Card from "../components/common/Card";
+
 export default function Dashboard() {
   return (
     <div className="p-8">
@@ -6,27 +8,10 @@ export default function Dashboard() {
       </h1>
 
       <div className="grid md:grid-cols-4 gap-6">
-
-        <div className="bg-white shadow rounded-xl p-6">
-          <h2 className="text-gray-500">Total Habits</h2>
-          <p className="text-3xl font-bold">8</p>
-        </div>
-
-        <div className="bg-white shadow rounded-xl p-6">
-          <h2 className="text-gray-500">Completed Today</h2>
-          <p className="text-3xl font-bold">5</p>
-        </div>
-
-        <div className="bg-white shadow rounded-xl p-6">
-          <h2 className="text-gray-500">Current Streak</h2>
-          <p className="text-3xl font-bold">12 🔥</p>
-        </div>
-
-        <div className="bg-white shadow rounded-xl p-6">
-          <h2 className="text-gray-500">Completion Rate</h2>
-          <p className="text-3xl font-bold">80%</p>
-        </div>
-
+        <Card title="Total Habits" value="8" />
+        <Card title="Completed Today" value="5" />
+        <Card title="Current Streak" value="12 🔥" />
+        <Card title="Completion Rate" value="80%" />
       </div>
     </div>
   );
