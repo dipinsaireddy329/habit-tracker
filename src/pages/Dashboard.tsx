@@ -1,18 +1,41 @@
-import Card from "../components/common/Card";
+import HabitForm from "../components/habits/HabitForm";
+import HabitList from "../components/habits/HabitList";
+import { Habit } from "../types/Habit";
 
 export default function Dashboard() {
+  const habits: Habit[] = [
+    {
+      id: 1,
+      name: "Reading",
+      category: "Learning",
+      streak: 7,
+      completed: true,
+    },
+    {
+      id: 2,
+      name: "Workout",
+      category: "Fitness",
+      streak: 12,
+      completed: false,
+    },
+    {
+      id: 3,
+      name: "Meditation",
+      category: "Mindfulness",
+      streak: 5,
+      completed: true,
+    },
+  ];
+
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold mb-8">
         Dashboard
       </h1>
 
-      <div className="grid md:grid-cols-4 gap-6">
-        <Card title="Total Habits" value="8" />
-        <Card title="Completed Today" value="5" />
-        <Card title="Current Streak" value="12 🔥" />
-        <Card title="Completion Rate" value="80%" />
-      </div>
+      <HabitForm />
+
+      <HabitList habits={habits} />
     </div>
   );
 }
