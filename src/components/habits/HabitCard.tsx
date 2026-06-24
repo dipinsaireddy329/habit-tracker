@@ -17,20 +17,22 @@ export default function HabitCard({
         {habit.category}
       </p>
 
-      <p className="mt-4">
-        🔥 Streak: {habit.streak} days
+      <p className="mt-3">
+        🔥 Streak: {habit.streak}
       </p>
 
       <div className="mt-4">
-        {habit.completed ? (
-          <span className="text-green-600 font-semibold">
-            Completed ✅
-          </span>
-        ) : (
-          <span className="text-red-500 font-semibold">
-            Pending
-          </span>
-        )}
+        <span
+          className={`px-3 py-1 rounded-full text-sm ${
+            habit.completed
+              ? "bg-green-100 text-green-600"
+              : "bg-yellow-100 text-yellow-600"
+          }`}
+        >
+          {habit.completed
+            ? "Completed"
+            : "Pending"}
+        </span>
       </div>
     </div>
   );

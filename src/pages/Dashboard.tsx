@@ -1,9 +1,10 @@
+import { useState } from "react";
 import HabitForm from "../components/habits/HabitForm";
 import HabitList from "../components/habits/HabitList";
 import { Habit } from "../types/Habit";
 
 export default function Dashboard() {
-  const habits: Habit[] = [
+  const [habits, setHabits] = useState<Habit[]>([
     {
       id: 1,
       name: "Reading",
@@ -25,7 +26,22 @@ export default function Dashboard() {
       streak: 5,
       completed: true,
     },
-  ];
+  ]);
+
+  const addHabit = (
+    name: string,
+    category: string
+  ) => {
+    const newHabit: Habit = {
+      id: Date.now(),
+      name,
+      category,
+      streak: 0,
+      completed: false,
+    };
+
+    setHabits((prev) => [...prev, newHabit]);
+  };
 
   return (
     <div className="p-8">
@@ -33,7 +49,7 @@ export default function Dashboard() {
         Dashboard
       </h1>
 
-      <HabitForm />
+      <HabitForm onAddHabit={addHabit} />
 
       <HabitList habits={habits} />
     </div>
